@@ -22,7 +22,7 @@ fig,(ax1,ax2)=plt.subplots(2,1)
 ax1.plot(stock_600516['日期'],stock_600516['收盘'])
 ax1.grid(True,which='major',axis='y',linestyle="--",alpha=0.7)
 #进行图片标题，Y轴单位，刻度的设置
-ax1.set_title('2025年方大炭素股票走势',fontsize=16)
+ax1.set_title('2020-2025年方大炭素股票走势',fontsize=16)
 ax1.set_ylabel("收盘价（元）",fontsize=16)
 ax1.tick_params(labelsize=16)
 #设置图2柱状图颜色。并确定横纵坐标及字体大小
@@ -49,4 +49,5 @@ day_returns=stock_600516['收盘']/stock_600516['收盘'].shift(1)-1
 volatility=day_returns.std()*np.sqrt(250)
 Sharpe_Ratio=(annual_return-0.19)/volatility
 print(f"方大炭素最近5年的波动率是:{volatility*100:.4}%，夏普比率是：{Sharpe_Ratio:.2}。")
+
 
