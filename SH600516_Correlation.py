@@ -26,7 +26,8 @@ stock_600516['stock_return']=np.log(stock_600516['close']/stock_600516['close'].
 index_hs300['hs300_return']=np.log(index_hs300['close']/index_hs300['close'].shift(1))
 #计算两者的相关系数
 correlation=stock_600516['stock_return'].corr(index_hs300['hs300_return'])
-print(f'方大炭素与沪深300指数的日收益率相关系数为{correlation:4f}')
+print(f'方大炭素与沪深300指数的日收益率相关系数为{correlation:.2}')
+
 
 
 
