@@ -21,14 +21,14 @@ index_hs300 = ak.stock_zh_index_daily(symbol="sh000300")
 index_hs300['date']=pd.to_datetime(index_hs300['date'])
 index_hs300=index_hs300[(index_hs300['date']>='2020-12-31')&(index_hs300['date']<='2025-12-27')]
 index_hs300.set_index('date',inplace=True)
-#将两者收盘合并入一个Dataframe中
-combined=pd.DataFrame({'stock_close':stock_600516['close'],'hs300_close':index_hs300['close']})
-#将两者的日收益率进行指数化
-combined['stock_return']=np.log(combined['stock_close']/combined['stock_close'].shift(1))
-combined['hs300_return']=np.log(combined['hs300_close']/combined['hs300_close'].shift(1))
+#日收益率取对数
+stock_600516['stock_return']=np.log(stock_600516['close']/stock_600516['close'].shift(1))
+index_hs300['hs300_return']=np.log(index_hs300['close']/index_hs300['close'].shift(1))
 #计算两者的相关系数
-correlation=combined['stock_return'].corr(combined['hs300_return'])
+correlation=stock_600516['stock_return'].corr(index_hs300['hs300_return'])
 print(f'方大炭素与沪深300指数的日收益率相关系数为{correlation:4f}')
+
+
 
 
 
