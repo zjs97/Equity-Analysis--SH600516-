@@ -33,6 +33,9 @@ ax2.set_xlabel('日期',fontsize=16)
 #数据可视化
 fig.autofmt_xdate()
 plt.show()
+#计算价格与成交量的相关系数
+correlation=stock_600516['收盘'].corr(stock_600516['成交量'])
+print(f'方大炭素价格与成交量的相关系数为{correlation:4f}')
 
 #计算该股票近5年的总收益率
 total_return=list(stock_600516['收盘'])[-1]/list(stock_600516['收盘'])[0]-1
@@ -49,6 +52,7 @@ day_returns=stock_600516['收盘']/stock_600516['收盘'].shift(1)-1
 volatility=day_returns.std()*np.sqrt(250)
 Sharpe_Ratio=(annual_return-0.19)/volatility
 print(f"方大炭素最近5年的波动率是:{volatility*100:.4}%，夏普比率是：{Sharpe_Ratio:.2}。")
+
 
 
 
