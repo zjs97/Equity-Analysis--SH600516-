@@ -49,8 +49,9 @@ print(f"方大炭素近5年的最大回撤率:{round(max_drawdown*100,2)}%")
 #计算该股票的波动率及夏普比例
 day_returns=stock_600516['收盘']/stock_600516['收盘'].shift(1)-1
 volatility=day_returns.std()*np.sqrt(250)
-Sharpe_Ratio=(annual_return-0.19)/volatility
+Sharpe_Ratio=(annual_return-0.019)/volatility
 print(f"方大炭素最近5年的波动率是:{volatility*100:.4}%，夏普比率是：{Sharpe_Ratio:.2}。")
+
 
 
 
